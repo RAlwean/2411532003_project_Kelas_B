@@ -18,4 +18,9 @@ public class Database {
             return null;
         }
     }
+
+	public static Connection getConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

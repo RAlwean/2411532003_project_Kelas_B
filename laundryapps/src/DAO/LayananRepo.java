@@ -1,27 +1,25 @@
 package DAO;
 
 import config.Database;
-import model.User;
+import model.Layanan;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepo implements UserDAO {
-
+public class LayananRepo implements LayananDAO {
     private Connection conn;
 
-    public UserRepo() {
+    public LayananRepo() {
         conn = Database.getConnection();
     }
 
     @Override
-    public void save(User user) {
+    public void save(Layanan layanan) {
         try {
-            String sql = "INSERT INTO user (name, username, password) VALUES (?,?,?)";
+            String sql = "INSERT INTO layanan (nama_layanan, harga) VALUES (?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, user.getNama());
-            ps.setString(2, user.getUsername());
-            ps.setString(3, user.getPassword());
+            ps.setString(1, layanan.getNamaLayanan());
+            ps.setDouble(2, layanan.getHarga());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -29,19 +27,18 @@ public class UserRepo implements UserDAO {
     }
 
     @Override
-    public List<User> show() {
-        List<User> list = new ArrayList<>();
+    public List<Layanan> show() {
+        List<Layanan> list = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM user";
+            String sql = "SELECT * FROM layanan";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                User u = new User();
-                u.setId(rs.getInt("id"));
-                u.setNama(rs.getString("name"));
-                u.setUsername(rs.getString("username"));
-                u.setPassword(rs.getString("password"));
-                list.add(u);
+                Layanan l = new Layanan();
+                l.setId(rs.getInt("id"));
+                l.setNamaLayanan(rs.getString("nama_layanan"));
+                l.setHarga(rs.getDouble("harga"));
+                list.add(l);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,14 +47,13 @@ public class UserRepo implements UserDAO {
     }
 
     @Override
-    public void update(User user) {
+    public void update(Layanan layanan) {
         try {
-            String sql = "UPDATE user SET name=?, username=?, password=? WHERE id=?";
+            String sql = "UPDATE layanan SET nama_layanan=?, harga=? WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, user.getNama());
-            ps.setString(2, user.getUsername());
-            ps.setString(3, user.getPassword());
-            ps.setInt(4, user.getId());
+            ps.setString(1, layanan.getNamaLayanan());
+            ps.setDouble(2, layanan.getHarga());
+            ps.setInt(3, layanan.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,7 +63,7 @@ public class UserRepo implements UserDAO {
     @Override
     public void delete(int id) {
         try {
-            String sql = "DELETE FROM user WHERE id=?";
+            String sql = "DELETE FROM layanan WHERE id=?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
