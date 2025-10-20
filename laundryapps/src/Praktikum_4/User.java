@@ -29,7 +29,6 @@ public class User {
             TextBook textbook = (TextBook) book;
             System.out.println("Bidang Studi: " + textbook.getBidangStudi());
         }
-        // Tambahkan instanceof untuk tipe lain
     }
 
     // Meminjam buku
