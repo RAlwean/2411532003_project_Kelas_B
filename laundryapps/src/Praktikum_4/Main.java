@@ -23,19 +23,23 @@ public class Main {
         System.out.println("=== Proses Peminjaman Buku ===");
         user.borrowBook(novel);
         user.borrowBook(magazine);
+        user.borrowBook(textbook);
 
         // Menampilkan status ketersediaan
         System.out.println("\nStatus Buku Setelah Dipinjam:");
         System.out.println(novel.getTitle() + " tersedia: " + novel.isAvailable());
         System.out.println(magazine.getTitle() + " tersedia: " + magazine.isAvailable());
-
+        System.out.println(textbook.getTitle() + "tersedia: " + textbook.isAvailable());
         // Mengembalikan buku
         System.out.println("\n=== Proses Pengembalian Buku ===");
         user.returnBook(novel);
+        user.returnBook(magazine);
+        user.returnBook(textbook);
 
         // Menampilkan status ketersediaan setelah pengembalian
         System.out.println("\nStatus Buku Setelah Dikembalikan:");
         System.out.println(novel.getTitle() + " tersedia: " + novel.isAvailable());
-
+        System.out.println(magazine.getTitle() + "tersedia: " + magazine.isAvailable());
+        System.out.println(textbook.getTitle() + "tersedia: " + textbook.isAvailable());
     }
 }

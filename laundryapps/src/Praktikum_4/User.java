@@ -41,7 +41,7 @@ public class User {
         }
     }
 
-    // Mengembalikan buku
+    // Return book
     public void returnBook(Book book) {
         if (!book.isAvailable()) {
             book.returnBook();
