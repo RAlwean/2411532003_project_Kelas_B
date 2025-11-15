@@ -4,20 +4,25 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class Database {
+    private static Connection conn;
+    
     public static Connection koneksi() {
-        try {
+        if (conn == null) {
+    	try {	
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/laundry_apps?useSSL=false&serverTimezone=UTC",
-                "root",
-                ""
-            );
+            conn = DriverManager.getConnection(
+            	    "jdbc:mysql://localhost:3306/laundry",
+            	    "root",
+            	    ""
+            	);
             return conn;
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Koneksi Gagal: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, e);
             return null;
         }
     }
+        return conn;
+}
 
 	public static Connection getConnection() {
 		// TODO Auto-generated method stub

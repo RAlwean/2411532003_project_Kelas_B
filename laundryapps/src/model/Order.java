@@ -1,91 +1,77 @@
 package model;
 
-import java.util.Date;
-
 public class Order {
-    private int id;
-    private int idCostumer;
-    private int idService;
-    private int idUser;
-    private double total;
-    private Date tanggal;
-    private Date tanggalSelesai;
-    private String status;
-    private String statusPembayaran;
+	String id, id_customer, id_service, id_user, total, tanggal, tanggal_selesai, status, status_pembayaran;
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public int getIdCostumer() {
-        return idCostumer;
-    }
-    public void setIdCostumer(int idCostumer) {
-        this.idCostumer = idCostumer;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public int getIdService() {
-        return idService;
-    }
-    public void setIdService(int idService) {
-        this.idService = idService;
-    }
+	public String getId_costumer() {
+		return id_customer;
+	}
 
-    public int getIdUser() {
-        return idUser;
-    }
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
-    }
+	public void setId_costumer(String id_costumer) {
+		this.id_customer = id_costumer;
+	}
 
-    public double getTotal() {
-        return total;
-    }
-    public void setTotal(double total) {
-        this.total = total;
-    }
+	public String getId_service() {
+		return id_service;
+	}
 
-    public Date getTanggal() {
-        return tanggal;
-    }
-    public void setTanggal(Date tanggal) {
-        this.tanggal = tanggal;
-    }
+	public void setId_service(String id_service) {
+		this.id_service = id_service;
+	}
 
-    public Date getTanggalSelesai() {
-        return tanggalSelesai;
-    }
-    public void setTanggalSelesai(Date tanggalSelesai) {
-        this.tanggalSelesai = tanggalSelesai;
-    }
+	public String getId_user() {
+		return id_user;
+	}
 
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setId_user(String id_user) {
+		this.id_user = id_user;
+	}
 
-    public String getStatusPembayaran() {
-        return statusPembayaran;
-    }
-    public void setStatusPembayaran(String statusPembayaran) {
-        this.statusPembayaran = statusPembayaran;
-    }
-        public static Order createSampleOrder(Costumer c, Service s, int idUser) {
-            Order o = new Order();
-            o.setId(1001);
-            o.setIdCostumer(c.getId());
-            o.setIdService(s.getId());
-            o.setIdUser(idUser);
-            o.setTotal(s.getHarga());
-            o.setTanggal(new Date());
-            o.setStatus("Diproses");
-            o.setStatusPembayaran("Belum Lunas");
-            return o;
-        }
-    }
+	public String getTotal() {
+		return total;
+	}
 
+	public void setTotal(String total) {
+		this.total = total;
+	}
+
+	public String getTanggal() {
+		return tanggal;
+	}
+
+	public void setTanggal(String tanggal) {
+		this.tanggal = tanggal;
+	}
+
+	public String getTanggal_selesai() {
+		return tanggal_selesai;
+	}
+
+	public void setTanggal_selesai(String tanggal_selesai) {
+		this.tanggal_selesai = tanggal_selesai;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getStatus_pembayaran() {
+		return status_pembayaran;
+	}
+
+	public void setStatus_pembayaran(String status_pembayaran) {
+		this.status_pembayaran = status_pembayaran;
+	}
+}

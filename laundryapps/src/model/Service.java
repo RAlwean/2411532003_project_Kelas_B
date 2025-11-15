@@ -1,30 +1,37 @@
 package model;
 
 public class Service {
-    private int id;
-    private String jenis;
-    private double harga;
-    private String status;
+	String id, jenis, harga, status;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+	public String getId() {
+		return id;
+	}
 
-    public String getJenis() { return jenis; }
-    public void setJenis(String jenis) { this.jenis = jenis; }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public double getHarga() { return harga; }
-    public void setHarga(double harga) { this.harga = harga; }
+	public String getJenis() {
+		return jenis;
+	}
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+	public void setJenis(String jenis) {
+		this.jenis = jenis;
+	}
 
+	public String getHarga() {
+		return harga;
+	}
 
-    public static Service createSampleService() {
-        Service s = new Service();
-        s.setId(101);
-        s.setJenis("Cuci Kering");
-        s.setHarga(25000);
-        s.setStatus("Tersedia");
-        return s;
-    }
+	public void setHarga(String harga) {
+		this.harga = harga;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }
